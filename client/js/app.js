@@ -1,6 +1,6 @@
 // initialize the app
 angular.module('Demo', [
-  'ngResource'
+    'ngResource'
 ]);
 
 // main controller
