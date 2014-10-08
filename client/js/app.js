@@ -41,6 +41,7 @@ angular.module('Demo').factory('UserFactory', function($resource, ServerUrl) {
 
 // remote user controller
 angular.module('Demo').controller('RemoteUserCtrl', function ($scope, $http, ServerUrl) {
+    // use $http
     $http.get(ServerUrl + 'users').success(function(response) {
         $scope.users = response;
     });
@@ -50,7 +51,8 @@ angular.module('Demo').controller('RemoteUserCtrl', function ($scope, $http, Ser
             $scope.users.push(response);
         });
     };
-
+    
+    // use $resource
     /*UserFactory.query(function(response) {
         $scope.users = response;
     });
