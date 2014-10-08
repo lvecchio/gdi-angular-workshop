@@ -1,3 +1,5 @@
+'use strict';
+
 // initialize the app
 angular.module('Demo', [
     'ngResource'
