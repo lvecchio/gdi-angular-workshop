@@ -52,6 +52,12 @@ angular.module('Demo').controller('RemoteUserCtrl', function ($scope, $http, Ser
         });
     };
     
+    $scope.deleteUser = function(user) {
+        $http.delete(ServerUrl + 'users/' + user.id).success(function(response) {
+            _.remove($scope.users, { id: user.id });
+        });
+    };
+    
     // use $resource
     /*UserFactory.query(function(response) {
         $scope.users = response;

@@ -37,7 +37,7 @@
     <h2>Remote Users</h2>
     
     <ul>
-        <li ng-repeat="user in users">{{ user.firstName }} {{ user.lastName }}</li>
+        <li ng-repeat="user in users">{{ user.firstName }} {{ user.lastName }} <a ng-click="deleteUser(user)">Delete</a></li>
     </ul>
     
     <br>
@@ -61,6 +61,7 @@
 
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/lodash/dist/lodash.js"></script>
 
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
