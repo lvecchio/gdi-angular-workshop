@@ -41,9 +41,11 @@
         <li ng-repeat="user in users">{{ user.firstName }} {{ user.lastName }} <a ng-click="deleteUser(user)">Delete</a></li>
     </ul>
     
-    <br>
+    <p><a ng-click="showForm = !showForm" href="#"><span ng-show="!showForm">Add User</span><span ng-show="showForm">Hide Form</span></a></p>
     
-    <form role="form" ng-submit="createUser(user)">
+    <form role="form" ng-submit="createUser(user)" ng-show="showForm">
+        <br>
+        
         <div class="form-group">
             <label for="firstName">First Name</label>
             <input type="text" class="form-control" id="firstName" ng-model="user.firstName" required>
@@ -54,7 +56,7 @@
             <input type="text" class="form-control" id="lastName" ng-model="user.lastName" required>
         </div>
 
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     
     <br>
