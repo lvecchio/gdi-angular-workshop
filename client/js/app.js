@@ -1,17 +1,17 @@
-'use strict';
-
 // initialize the app
-angular.module('Demo', [
-    'ngResource'
-]);
+angular.module('Demo', []);
 
 // main controller
-angular.module('Demo').controller('MainCtrl', function ($scope) {
+angular.module('Demo').controller('MainCtrl', function($scope) {
+    'use strict';
+    
     $scope.name = 'Dan';
 });
 
 // local user controller
-angular.module('Demo').controller('LocalUserCtrl', function ($scope) {
+angular.module('Demo').controller('LocalUserCtrl', function($scope) {
+    'use strict';
+    
     $scope.users = [{
         firstName: 'Dan',
         lastName: 'Johnson'
@@ -31,16 +31,12 @@ angular.module('Demo').controller('LocalUserCtrl', function ($scope) {
     };
 });
 
-// constants
 angular.module('Demo').constant('ServerUrl', 'http://localhost:3000/');
 
-// user factory
-angular.module('Demo').factory('UserFactory', function($resource, ServerUrl) {
-  return $resource(ServerUrl + 'users/:id');
-});
-
 // remote user controller
-angular.module('Demo').controller('RemoteUserCtrl', function ($scope, $http, ServerUrl) {
+angular.module('Demo').controller('RemoteUserCtrl', function($scope, $http, ServerUrl) {
+    'use strict';
+    
     // use $http
     $http.get(ServerUrl + 'users').success(function(response) {
         $scope.users = response;
@@ -54,18 +50,14 @@ angular.module('Demo').controller('RemoteUserCtrl', function ($scope, $http, Ser
     
     $scope.deleteUser = function(user) {
         $http.delete(ServerUrl + 'users/' + user.id).success(function(response) {
-            _.remove($scope.users, { id: user.id });
+            // remove from users array by id
+            for (var i = 0; i < $scope.users.length; i++){
+                if ($scope.users[i].id == user.id) {
+                    $scope.users.splice(i, 1);
+                    
+                    break;
+                }
+            }
         });
     };
-    
-    // use $resource
-    /*UserFactory.query(function(response) {
-        $scope.users = response;
-    });
-    
-    $scope.createUser = function(user) {
-        UserFactory.save(user, function(response) {
-            $scope.users.push(response);
-        });
-    };*/
 });

@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title></title>
+<title>Angular Demo</title>
 <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+<link href="css/app.css" rel="stylesheet">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -16,7 +17,7 @@
 <body ng-app="Demo">
 
 <div class="container" ng-controller="MainCtrl">
-    <h1>Welcome {{ name | uppercase }}</h1>
+    <h1>Welcome {{ name }}</h1>
 </div>
 
 <hr>
@@ -61,12 +62,7 @@
 
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="bower_components/lodash/dist/lodash.js"></script>
-
 <script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-resource/angular-resource.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-
 <script src="js/app.js"></script>
 
 </body>
