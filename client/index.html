@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Angular Demo</title>
+<title>Angular Demo 1</title>
 <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 <link href="css/app.css" rel="stylesheet">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -41,9 +41,9 @@
         <li ng-repeat="user in users">{{ user.firstName }} {{ user.lastName }} <a ng-click="deleteUser(user)">Delete</a></li>
     </ul>
     
-    <p><a ng-click="showForm = !showForm" href="#"><span ng-show="!showForm">Add User</span><span ng-show="showForm">Hide Form</span></a></p>
+    <p><a ng-click="showForm = !showForm" href="#"><span ng-show="!showForm">Create User</span><span ng-show="showForm">Hide Form</span></a></p>
     
-    <form role="form" ng-submit="createUser(user)" ng-show="showForm">
+    <form role="form" name="createUserForm" ng-submit="createUser(user)" ng-show="showForm" novalidate>
         <br>
         
         <div class="form-group">
@@ -56,11 +56,11 @@
             <input type="text" class="form-control" id="lastName" ng-model="user.lastName" required>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" ng-disabled="createUserForm.$invalid">Submit</button>
     </form>
-    
-    <br>
 </div>
+
+<br>
 
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
