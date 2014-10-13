@@ -12,7 +12,7 @@ angular.module('Demo').controller('MainCtrl', function($scope) {
 angular.module('Demo').controller('LocalUserCtrl', function($scope) {
     'use strict';
     
-    $scope.users = [{
+    $scope.localUsers = [{
         firstName: 'Dan',
         lastName: 'Johnson'
     }, {
@@ -24,7 +24,7 @@ angular.module('Demo').controller('LocalUserCtrl', function($scope) {
     }];
     
     $scope.addUser = function() {
-        $scope.users.push({
+        $scope.localUsers.push({
             firstName: 'Jorden',
             lastName: 'Cayford'
         })
@@ -39,21 +39,24 @@ angular.module('Demo').controller('RemoteUserCtrl', function($scope, $http, Serv
     
     // use $http
     $http.get(ServerUrl + 'users').success(function(response) {
-        $scope.users = response;
+        $scope.remoteUsers = response;
     });
 
     $scope.createUser = function(user) {
         $http.post(ServerUrl + 'users', user).success(function(response) {
-            $scope.users.push(response);
+            $scope.remoteUsers.push(response);
+            
+            $scope.user.firstName = '';
+            $scope.user.lastName = '';
         });
     };
     
     $scope.deleteUser = function(user) {
         $http.delete(ServerUrl + 'users/' + user.id).success(function(response) {
             // remove from users array by id
-            for (var i = 0; i < $scope.users.length; i++){
-                if ($scope.users[i].id == user.id) {
-                    $scope.users.splice(i, 1);
+            for (var i = 0; i < $scope.remoteUsers.length; i++){
+                if ($scope.remoteUsers[i].id == user.id) {
+                    $scope.remoteUsers.splice(i, 1);
                     
                     break;
                 }
