@@ -26,8 +26,6 @@ angular.module('TaskManager').factory('TaskFactory', function($http, ServerUrl) 
 angular.module('TaskManager').controller('FormCtrl', function($scope, $http, ServerUrl, TaskFactory) {
     'use strict';
     
-    $scope.task = {};
-    
     $http.get(ServerUrl + 'categories').success(function(response) {
         $scope.categories = response;
     });
@@ -35,6 +33,8 @@ angular.module('TaskManager').controller('FormCtrl', function($scope, $http, Ser
     $scope.tasks = TaskFactory.tasks;
 
     $scope.createCategory = function(category) {
+        $scope.task = {};
+        
         $http.post(ServerUrl + 'categories', category).success(function(response) {
             $scope.categories.push(response);
             
@@ -54,12 +54,14 @@ angular.module('TaskManager').controller('FormCtrl', function($scope, $http, Ser
     };
 });
 
-angular.module('TaskManager').controller('ListCtrl', function($scope, TaskFactory) {
+angular.module('TaskManager').controller('ListCtrl', function($scope, $http, ServerUrl, TaskFactory) {
     'use strict';
     
     $scope.tasks = TaskFactory.tasks;
     
     $scope.completeTask = function(task) {
         task.status = 2;
+        
+        $http.put(ServerUrl + 'tasks/' + task.id, task);
     };
 });
