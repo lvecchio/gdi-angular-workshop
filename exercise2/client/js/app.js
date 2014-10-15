@@ -58,4 +58,8 @@ angular.module('TaskManager').controller('ListCtrl', function($scope, $http, Ser
     'use strict';
     
     $scope.tasks = TaskFactory.tasks;
+    
+    $scope.completeTask = function(task) {
+        task.status = 2;
+    };
 });
