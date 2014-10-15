@@ -37,7 +37,6 @@ angular.module('Demo').constant('ServerUrl', 'http://localhost:3000/');
 angular.module('Demo').controller('RemoteUserCtrl', function($scope, $http, ServerUrl) {
     'use strict';
     
-    // use $http
     $http.get(ServerUrl + 'users').success(function(response) {
         $scope.remoteUsers = response;
     });
