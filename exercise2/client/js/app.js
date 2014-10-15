@@ -54,7 +54,7 @@ angular.module('TaskManager').controller('FormCtrl', function($scope, $http, Ser
     };
 });
 
-angular.module('TaskManager').controller('ListCtrl', function($scope, $http, ServerUrl, TaskFactory) {
+angular.module('TaskManager').controller('ListCtrl', function($scope, TaskFactory) {
     'use strict';
     
     $scope.tasks = TaskFactory.tasks;
