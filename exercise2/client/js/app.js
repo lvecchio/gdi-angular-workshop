@@ -1,6 +1,6 @@
 // initialize the app
 angular.module('TaskManager', []).run(function(TaskFactory) {
-    TaskFactory.init();
+    TaskFactory.fetch();
 });
 
 angular.module('TaskManager').constant('ServerUrl', 'http://localhost:3000/');
@@ -8,7 +8,7 @@ angular.module('TaskManager').constant('ServerUrl', 'http://localhost:3000/');
 angular.module('TaskManager').factory('TaskFactory', function($http, ServerUrl) {
     var tasks = [];
     
-    var init = function() {
+    var fetch = function() {
         $http.get(ServerUrl + 'tasks').success(function(response) {
             // use angular.copy() to retain the original array which the controllers are bound to
             // tasks = response will overwrite the array with a new one and the controllers loose the reference
@@ -19,11 +19,11 @@ angular.module('TaskManager').factory('TaskFactory', function($http, ServerUrl) 
     
     return {
         tasks: tasks,
-        init: init
+        fetch: fetch
     };
 });
 
-angular.module('TaskManager').controller('FormCtrl', function($scope, $http, ServerUrl, TaskFactory) {
+angular.module('TaskManager').controller('FormCtrl', function($scope, $http, ServerUrl, TaskFactory, $q) {
     'use strict';
     
     $http.get(ServerUrl + 'categories').success(function(response) {
@@ -50,6 +50,20 @@ angular.module('TaskManager').controller('FormCtrl', function($scope, $http, Ser
             
             $scope.task.name = '';
             $scope.task.category = '';
+        });
+    };
+    
+    $scope.removeCompleted = function() {
+        var httpRequests = [];
+        
+        for (var i = 0; i < $scope.tasks.length; i++) {
+            if ($scope.tasks[i].status === 2) {
+                httpRequests.push($http.delete(ServerUrl + 'tasks/' + $scope.tasks[i].id));
+            }
+        }
+        
+        $q.all(httpRequests).then(function() {
+            TaskFactory.fetch();
         });
     };
 });
