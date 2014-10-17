@@ -13,6 +13,7 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+<script src="bower_components/angular/angular.js"></script>
 </head>
 <body ng-app="Demo">
 
@@ -29,7 +30,7 @@
         <li ng-repeat="user in localUsers">{{ user.firstName }} {{ user.lastName }}</li>
     </ul>
     
-    <p><a class="js-addLocalUser" ng-click="addUser()" href="#">Add User</a></p>
+    <p><a class="js-addLocalUser" ng-click="addUser()" ng-href="">Add User</a></p>
 </div>
 
 <hr>
@@ -41,7 +42,7 @@
         <li ng-repeat="user in remoteUsers">{{ user.firstName }} {{ user.lastName }} <a ng-click="deleteUser(user)">Delete</a></li>
     </ul>
     
-    <p><a ng-click="showForm = !showForm" href="#"><span ng-show="!showForm">Create User</span><span ng-show="showForm">Hide Form</span></a></p>
+    <p><a ng-click="showForm = !showForm" ng-href=""><span ng-show="!showForm">Create User</span><span ng-show="showForm">Hide Form</span></a></p>
     
     <form role="form" name="createUserForm" ng-submit="createUser(user)" ng-show="showForm" novalidate>
         <br>
@@ -64,7 +65,6 @@
 
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="bower_components/angular/angular.js"></script>
 <script src="js/app.js"></script>
 
 </body>
