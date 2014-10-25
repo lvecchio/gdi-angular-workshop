@@ -1,0 +1,13 @@
+{
+  "name": "angular-workshop",
+  "description": "Angular Workshop",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "jshint-stylish": "^1.0.0"
+  },
+  "dependencies": {},
+  "scripts": {}
+}
