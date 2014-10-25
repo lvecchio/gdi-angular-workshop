@@ -15,6 +15,10 @@ angular-workshop
 - If you have not already installed bower, you can do this with `npm install -g bower`
 - Open the index.html file in your browser
 
+#### Client Advanced ####
+
+- If you want to use grunt and jshint, then you'll need to do an `npm install` in the client-advanced directory
+
 #### Client Tests ####
 
 - `npm install -g protractor`

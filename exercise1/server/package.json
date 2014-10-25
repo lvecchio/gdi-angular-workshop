@@ -1,6 +1,6 @@
 {
-  "name": "angular-workshop-server",
-  "description": "Angular Workshop Server",
+  "name": "angular-workshop",
+  "description": "Angular Workshop",
   "version": "0.0.1",
   "devDependencies": {},
   "dependencies": {
