@@ -27,7 +27,7 @@ angular.module('Demo').controller('LocalUserCtrl', function($scope) {
         $scope.localUsers.push({
             firstName: 'Jorden',
             lastName: 'Cayford'
-        })
+        });
     };
 });
 
