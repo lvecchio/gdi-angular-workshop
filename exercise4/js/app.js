@@ -4,6 +4,12 @@ angular.module('Exercise4', [
     'Exercise4.directives',
 ]);
 
+angular.module('Exercise4').controller('DemoCtrl', function($scope) {
+    $scope.alertFeedback = function(feedback) {
+        alert('Name: ' + feedback.name + '\nComments: ' + feedback.comments);
+    };
+});
+
 angular.module('Exercise4.directives').directive('demoLorem', function() {
     return {
         restrict: 'E', // element
@@ -29,7 +35,8 @@ angular.module('Exercise4.directives').directive('demoFeedback', function() {
     return {
         restrict: 'E',
         scope: {
-            placeholder: '@' // one way, top down
+            placeholder: '@', // one way expression, outside in
+            submitAction: '&' // one way behavior, inside out, uses parent scope to execute
         },
         templateUrl: 'templates/feedback.html'
     };

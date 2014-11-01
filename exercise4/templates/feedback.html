@@ -1,3 +1,13 @@
 <div class="feedback">
-    <p><textarea type="text" name="feedback" placeholder="{{ placeholder }}"></textarea></p>
+    <form role="form" name="feedbackForm" ng-submit="submitAction({feedback: feedback})" novalidate>
+        <div class="form-group">
+            <input type="text" name="name" ng-model="feedback.name" placeholder="Name" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <textarea name="feedback" ng-model="feedback.comments" placeholder="{{ placeholder }}" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" ng-disabled="feedbackForm.$invalid">Submit</button>
+    </form>
 </div>
