@@ -34,5 +34,5 @@ angular.module('Exercise3.filters').filter('capitalize', function() {
         if (param) {
             return param[0].toUpperCase() + param.slice(1);
         }
-    }
+    };
 });
