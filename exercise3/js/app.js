@@ -1,5 +1,10 @@
 // initialize the app
-angular.module('Exercise3', ['ngRoute']);
+angular.module('Exercise3.filters', []);
+angular.module('Exercise3', [
+    'ngRoute',
+
+    'Exercise3.filters',
+]);
 
 angular.module('Exercise3').config(function($routeProvider) {
     'use strict';
@@ -18,8 +23,16 @@ angular.module('Exercise3').config(function($routeProvider) {
 
 angular.module('Exercise3').controller('NavbarCtrl', function($scope, $location) {
     'use strict';
-    
+
     $scope.isActive = function(viewLocation) {
         return viewLocation === $location.path();
     };
+});
+
+angular.module('Exercise3.filters').filter('capitalize', function() {
+    return function(param) {
+        if (param) {
+            return param[0].toUpperCase() + param.slice(1);
+        }
+    }
 });

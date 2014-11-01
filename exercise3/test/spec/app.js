@@ -3,7 +3,8 @@ describe('Controller: Exercise3', function() {
 
     var NavbarCtrl,
         scope,
-        $location;
+        $location,
+        capitalizeFilter;
 
     // mock the controller's module
     beforeEach(angular.mock.module('Exercise3'));
@@ -33,5 +34,12 @@ describe('Controller: Exercise3', function() {
         expect($location.path()).toBe('/about');
 
         expect(scope.isActive('/contact')).toBe(false);
+    });
+
+    it('capitalize filter should calitalize first letter in a string', function() {
+        inject(function(capitalizeFilter) {
+            expect(capitalizeFilter('dan')).not.toBe('dan');
+            expect(capitalizeFilter('dan')).toBe('Dan');
+        });
     });
 });
