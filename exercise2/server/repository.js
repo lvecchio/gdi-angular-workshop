@@ -7,60 +7,60 @@ var _ = require('lodash'),
 var repository = (function() {
     var repo = {
         categories: [],
-        
+
         createCategory: function(params) {
             var category = new Category(params);
-        
+
             repo.categories.push(category);
-        
+
             return category;
         },
-        
+
         updateCategory: function(id, params) {
             var category = _.find(repo.categories, { 'id': parseInt(id) });
-        
+
             // don't update primary key
             delete params.id;
-        
+
             _.forIn(params, function(value, key) {
                 category[key] = value;
             });
-        
+
             return category;
         },
-        
+
         deleteCategory: function(id) {
             return _.remove(repo.categories, { 'id': parseInt(id) });
         },
-        
+
         tasks: [],
-        
+
         createTask: function(params) {
             var task = new Task(params);
-        
+
             repo.tasks.push(task);
-        
+
             return task;
         },
-        
+
         updateTask: function(id, params) {
             var task = _.find(repo.tasks, { 'id': parseInt(id) });
-        
+
             // don't update primary key
             delete params.id;
-        
+
             _.forIn(params, function(value, key) {
                 task[key] = value;
             });
-        
+
             return task;
         },
-        
+
         deleteTask: function(id) {
             return _.remove(repo.tasks, { 'id': parseInt(id) });
         }
     };
-    
+
     return repo;
 })();
 

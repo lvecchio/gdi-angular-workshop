@@ -1,0 +1,17 @@
+body {
+    padding-top: 50px;
+}
+
+a, #taskList li {
+    cursor: pointer;
+}
+
+form[name="categoryForm"],
+form[name="taskForm"],
+#taskList {
+    margin: 20px 0 0;
+}
+
+.completed {
+    text-decoration: line-through !important; /* lazy way to override hover styles so strike shows right way */
+}

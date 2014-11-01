@@ -1,0 +1,5 @@
+<div id="taskList">
+    <ul>
+        <li ng-repeat="task in tasks" ng-click="completeTask(task)" ng-class="{completed: task.status === 2}">{{ task.name }}</li>
+    </ul>
+</div>
