@@ -39,7 +39,6 @@ angular.module('TaskManager').controller('FormCtrl', function($scope, $http, Ser
             $scope.categories.push(response);
 
             $scope.category.name = '';
-
             $scope.task.category = response.id;
         });
     };
@@ -58,7 +57,7 @@ angular.module('TaskManager').controller('FormCtrl', function($scope, $http, Ser
 
         for (var i = 0; i < $scope.tasks.length; i++) {
             if ($scope.tasks[i].status === 2) {
-                httpRequests.push($http.delete(ServerUrl + 'tasks/' + $scope.tasks[i].id));
+                httpRequests.push($http.delete(ServerUrl + 'tasks/10' + $scope.tasks[i].id));
             }
         }
 
@@ -74,7 +73,7 @@ angular.module('TaskManager').controller('ListCtrl', function($scope, $http, Ser
     $scope.tasks = TaskFactory.tasks;
 
     $scope.completeTask = function(task) {
-        task.status = 2;
+        task.status = (task.status === 0) ? 2 : 0;
 
         $http.put(ServerUrl + 'tasks/' + task.id, task);
     };
