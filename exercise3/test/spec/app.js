@@ -1,4 +1,4 @@
-describe('Controller: Exercise3', function() {
+describe('Exercise3', function() {
     'use strict';
 
     var NavbarCtrl,
@@ -6,7 +6,7 @@ describe('Controller: Exercise3', function() {
         $location,
         capitalizeFilter;
 
-    // mock the controller's module
+    // mock the app module
     beforeEach(angular.mock.module('Exercise3'));
 
     // initialize the controller and a mock scope
@@ -20,7 +20,7 @@ describe('Controller: Exercise3', function() {
         });
     }));
 
-    it('isActive() should return true if when passed the current location', function() {
+    it('isActive() should return true when passed the current location', function() {
         $location.path('/about');
 
         expect($location.path()).toBe('/about');
@@ -28,7 +28,7 @@ describe('Controller: Exercise3', function() {
         expect(scope.isActive('/about')).toBe(true);
     });
 
-    it('isActive() should return false if when passed a different location', function() {
+    it('isActive() should return false when passed a different location', function() {
         $location.path('/about');
 
         expect($location.path()).toBe('/about');
