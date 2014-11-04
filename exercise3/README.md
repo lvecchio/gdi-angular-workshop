@@ -12,5 +12,6 @@ angular-workshop
 #### Client Tests ####
 
 - `npm install -g karma`
+- `npm install -g karma-cli`
 - `npm install`
 - In the test directory run `karma start`
