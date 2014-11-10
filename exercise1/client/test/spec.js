@@ -4,7 +4,7 @@ var DemoPage = function() {
     this.remoteUsers = element.all(by.repeater('user in remoteUsers'));
 
     this.get = function() {
-        browser.get('http://127.0.0.1/~djohn3/angular-workshop/exercise1/client/index.html');
+        browser.get('http://localhost:63342/angular-workshop/exercise1/client/index.html');
     };
 };
 

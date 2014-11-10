@@ -16,6 +16,9 @@ angular.module('Exercise3').config(function($routeProvider) {
         .when('/about', {
             templateUrl: 'templates/about.html'
         })
+        .when('/contact', {
+            templateUrl: 'templates/contact.html'
+        })
         .otherwise({
             redirectTo: '/'
         });
@@ -33,6 +36,14 @@ angular.module('Exercise3.filters').filter('capitalize', function() {
     return function(param) {
         if (param) {
             return param[0].toUpperCase() + param.slice(1);
+        }
+    };
+});
+
+angular.module('Exercise3.filters').filter('dansays', function() {
+    return function(param) {
+        if (param) {
+            return "\"" + param +",\" said Dan.";
         }
     };
 });

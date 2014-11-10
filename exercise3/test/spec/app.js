@@ -36,7 +36,7 @@ describe('Controller: Exercise3', function() {
         expect(scope.isActive('/contact')).toBe(false);
     });
 
-    it('capitalize filter should calitalize first letter in a string', function() {
+    it('capitalize filter should capitalize first letter in a string', function() {
         inject(function(capitalizeFilter) {
             expect(capitalizeFilter('dan')).not.toBe('dan');
             expect(capitalizeFilter('dan')).toBe('Dan');
