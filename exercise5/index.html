@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Exercise 4</title>
+<title>Exercise 5</title>
 <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -14,16 +14,16 @@
 <![endif]-->
 <script src="bower_components/angular/angular.js"></script>
 </head>
-<body ng-app="Exercise4">
+<body ng-app="Exercise5">
 
-<div class="container" ng-controller="DemoCtrl">
+<div class="container">
     <h1>Directives Demo</h1>
 
-    <demo-lorem></demo-lorem>
+    <br>
 
-    <p demo-clickable>I can be clicked</p>
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#demoModal">Launch Modal</button>
 
-    <demo-feedback placeholder="What did you think?" submit-action="alertFeedback(feedback)"></demo-feedback>
+	<demo-modal title="This is transclusion!">Hello World!</demo-modal>
 </div>
 
 <script src="bower_components/jquery/dist/jquery.js"></script>
