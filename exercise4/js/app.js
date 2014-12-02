@@ -18,6 +18,14 @@ angular.module('Exercise4.directives').directive('demoLorem', function() {
     };
 });
 
+angular.module('Exercise4.directives').directive('demoCatify', function() {
+   return {
+       restrict: 'E',
+
+       template: '<image src="http://placekitten.com/g/300/300">'
+   }
+});
+
 angular.module('Exercise4.directives').directive('demoClickable', function() {
     return {
         restrict: 'A', // attribute
@@ -31,6 +39,22 @@ angular.module('Exercise4.directives').directive('demoClickable', function() {
     };
 });
 
+angular.module('Exercise4.directives').directive('demoHover', function() {
+    return {
+        restrict: 'A', // attribute
+
+        link: function($scope, element) {
+            // element is wrapped at jQuery object
+            element.bind('mouseout', function() {
+
+                alert('You just moused over a ' + element);
+            });
+        }
+    };
+});
+
+
+
 angular.module('Exercise4.directives').directive('demoFeedback', function() {
     return {
         restrict: 'E',
@@ -39,5 +63,27 @@ angular.module('Exercise4.directives').directive('demoFeedback', function() {
             submitAction: '&' // one way behavior, inside out, uses parent scope to execute
         },
         templateUrl: 'templates/feedback.html'
+    };
+});
+
+angular.module('Exercise4.directives').directive('demoFeedback', function() {
+    return {
+        restrict: 'E',
+        scope: {
+            placeholder: '@', // one way expression, outside in
+            submitAction: '&' // one way behavior, inside out, uses parent scope to execute
+        },
+        templateUrl: 'templates/feedback.html'
+    };
+});
+
+angular.module('Exercise4.directives').directive('demoProfile', function() {
+    return {
+        restrict: 'E',
+        scope: {
+            username: '@', // one way expression, outside in
+            clickAction: '&' // one way behavior, inside out, uses parent scope to execute
+        },
+        templateUrl: 'templates/profile.html'
     };
 });

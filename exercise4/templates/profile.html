@@ -1,0 +1,13 @@
+<div class="feedback">
+    <form role="form" name="feedbackForm" ng-click="clickAction({username:username})" novalidate>
+        <div class="form-group">
+            <input type="text" name="name" ng-model="username" placeholder="Name" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <textarea name="feedback" ng-model="feedback.comments" placeholder="{{ username }}" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
